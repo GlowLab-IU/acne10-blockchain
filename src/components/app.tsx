@@ -23,19 +23,18 @@ const MyApp = () => {
           <SnackbarProvider>
             <ZMPRouter>
               <Routes>
-                {/* Trang SurveyPage không bọc trong Layout */}
                 <Route path="/" element={<SurveyPage />} />
 
-                {/* Các route khác sẽ được bọc trong Layout */}
                 <Route
                   path="/*"
                   element={
-                    <Layout>
-                      <Routes>
-                        <Route path="/index" element={<HomePage />} />
-                        {/* Các route khác như trang người dùng, trang sản phẩm */}
-                      </Routes>
-                    </Layout>
+                    <React.Fragment>
+                      <Layout>
+                        <Routes>
+                          <Route path="/index" element={<HomePage />} />
+                        </Routes>
+                      </Layout>
+                    </React.Fragment>
                   }
                 />
               </Routes>
