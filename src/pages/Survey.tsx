@@ -8,7 +8,6 @@ import { useRecoilValue } from "recoil";
 
 import { userState } from "../state";
 
-
 const { Title } = Typography;
 
 type QuestionOption = {
@@ -42,7 +41,6 @@ const Survey: FC = () => {
   } = useForm<FormData>();
   const userInfo = useRecoilValue(userState);
 
-
   const [step, setStep] = useState<number>(0);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [surveyData, setSurveyData] = useState<FormData>({}); // New state to store form data progressively
@@ -68,9 +66,8 @@ const Survey: FC = () => {
   };
 
   const handleSurveySubmit = async () => {
-
     try {
-      navigate("/index"); // Optionally navigate to a different page after submission
+      navigate("/index");
     } catch (error) {
       console.error("Error submitting survey data:", error);
     }
@@ -102,7 +99,8 @@ const Survey: FC = () => {
       ],
     },
     {
-      title: "Is there a history of allergic reactions or irritation to topical medications?",
+      title:
+        "Is there a history of allergic reactions or irritation to topical medications?",
       name: "allergyHistory",
       options: [
         { label: "Yes", value: "yes" },
@@ -118,7 +116,8 @@ const Survey: FC = () => {
       ],
     },
     {
-      title: "Is your acne concentrated in specific areas such as under the jaw?",
+      title:
+        "Is your acne concentrated in specific areas such as under the jaw?",
       name: "localizedAcne",
       options: [
         { label: "Yes", value: "yes" },
@@ -259,7 +258,7 @@ const Survey: FC = () => {
                         transition: "background-color 0.3s",
                         backgroundColor:
                           errors[questions[step].name]?.type === "required" &&
-                            errors[questions[step].name].message
+                          errors[questions[step].name].message
                             ? "#ffcccc"
                             : "#ffffff",
                       }}
@@ -299,7 +298,6 @@ const Survey: FC = () => {
               <Button type="primary" onClick={handleSurveySubmit}>
                 Start
               </Button>
-
             }
           />
         )}

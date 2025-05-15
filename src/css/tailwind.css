@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Responsive layout styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for responsive design */
+@layer components {
+  .container {
+    @apply mx-auto px-4;
+  }
+
+  .grid-cols-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4;
+  }
+
+  .text-responsive {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+}
