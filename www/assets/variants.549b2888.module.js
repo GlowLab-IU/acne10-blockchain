@@ -1,0 +1,1 @@
+var e=[{id:"size",label:"Size",type:"single",default:"m",options:[{id:"s",label:"Small",priceChange:{type:"percent",percent:-.2}},{id:"m",label:"Medium"},{id:"l",label:"Large",priceChange:{type:"percent",percent:.2}}]}];export{e as default};

@@ -1,0 +1,17 @@
+s.title {
+    font-family: 'Roboto', Arial, sans-serif; /* Sử dụng phông chữ Roboto */
+    font-size: 24px;
+    color: #6c757d;
+}
+
+.option {
+    font-family: 'Roboto', Arial, sans-serif; /* Sử dụng phông chữ Roboto */
+    font-size: 16px;
+    color: #000; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+}
+
+.option:hover {
+    background-color: #f0f0f0; 
+}
