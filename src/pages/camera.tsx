@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Header, Page, Text, Spinner, Icon } from "zmp-ui";
 import { chooseImage } from "zmp-sdk";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowUpFromBracket,
-  faImage,
-  faLightbulb,
-} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-// The content of the homepage, including the buttons for interaction.
 const CameraContent = () => {
   const [imageUri, setImageUri] = useState("");
   const [loading, setLoading] = useState(false);
@@ -90,170 +83,66 @@ const CameraContent = () => {
   const tryFeature = () => {
     navigate("/guild");
   };
+
   return (
-    <Box
-      className="bg-background"
-      style={{
-        paddingTop: "30px",
-        paddingBottom: "20%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* New Image and Subtitle */}
+    <Box className="bg-background py-6 px-4 md:px-8 flex flex-col items-center">
       <img
         src="https://res.cloudinary.com/dwljkfseh/image/upload/v1733744746/causes2_nb5vyz.png"
-        alt="Centered Image"
-        style={{
-          width: "70%",
-          objectFit: "cover",
-          marginBottom: "20px",
-          borderRadius: "7%",
-        }}
+        alt="Centered"
+        className="w-full max-w-md rounded-xl object-cover mb-4"
       />
-      <div
-        style={{
-          backgroundColor: "#FFFFFF",
-          padding: "3%",
-          borderRadius: "8px",
-          display: "contents",
-          width: "95%",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'Roboto', sans-serif",
-            fontSize: "20px",
-            fontWeight: "bold",
-            color: "#4E2E2F",
-            letterSpacing: "0.5px",
-            width: "65%",
-            textAlign: "center",
-          }}
-        >
+      <div className="bg-white p-4 rounded-lg w-full max-w-md text-center">
+        <p className="font-bold text-lg md:text-xl text-[#4E2E2F]">
           Take a picture of how you look today!
         </p>
       </div>
-      <br />
-      <br />
 
-      {/* Take a New Picture Button */}
-      <button
-        onClick={handleChooseImage}
-        style={{
-          marginBottom: "50px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "85%",
-          borderRadius: "12px",
-          backgroundColor: "rgba(68 ,141, 177, 90%)",
-          padding: "10px",
-          cursor: "pointer",
-          fontFamily: "'Roboto', sans-serif",
-        }}
-      >
-        <img
-          src="https://res.cloudinary.com/dwljkfseh/image/upload/v1730650194/5071156_ww7gou.png"
-          alt="Take a new picture"
-          style={{
-            width: "66px",
-            height: "66px",
-            objectFit: "cover",
-            fontWeight: "bold",
-          }}
-        />
-
-        <p
-          style={{
-            fontWeight: "bold",
-            fontSize: "18px",
-            color: "#FFFFFF",
-          }}
+      <div className="mt-6 w-full max-w-md flex flex-col gap-5">
+        <button
+          onClick={handleChooseImage}
+          className="flex items-center justify-between w-full rounded-xl bg-blue-500 text-white p-4 hover:bg-blue-600 transition"
         >
-          Take a new picture
-        </p>
-        <Icon icon="zi-chevron-right" />
-      </button>
+          <img
+            src="https://res.cloudinary.com/dwljkfseh/image/upload/v1730650194/5071156_ww7gou.png"
+            alt="Take new"
+            className="w-14 h-14 object-cover"
+          />
+          <p className="font-semibold text-base md:text-lg">
+            Take a new picture
+          </p>
+          <Icon icon="zi-chevron-right" />
+        </button>
 
-      {/* Test Image for Diagnosis Button */}
-      <button
-        onClick={() => setShouldUpload(true)}
-        style={{
-          marginBottom: "50px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "85%",
-          borderRadius: "12px",
-          backgroundColor: "rgba(68 ,141, 177, 90%)",
-          padding: "10px",
-          cursor: "pointer",
-          fontFamily: "'Roboto', sans-serif",
-        }}
-      >
-        <img
-          src="https://res.cloudinary.com/dwljkfseh/image/upload/v1730650408/3476744_s9apiv.png"
-          alt="Test image"
-          style={{
-            width: "66px",
-            height: "66px",
-            objectFit: "cover",
-          }}
-        />
-        <p
-          style={{
-            fontWeight: "bold",
-            fontSize: "18px",
-            color: "#FFFFFF",
-          }}
+        <button
+          onClick={() => setShouldUpload(true)}
+          className="flex items-center justify-between w-full rounded-xl bg-blue-500 text-white p-4 hover:bg-blue-600 transition"
         >
-          Test Image for Diagnosis
-        </p>
-        <Icon icon="zi-chevron-right" />
-      </button>
+          <img
+            src="https://res.cloudinary.com/dwljkfseh/image/upload/v1730650408/3476744_s9apiv.png"
+            alt="Test image"
+            className="w-14 h-14 object-cover"
+          />
+          <p className="font-semibold text-base md:text-lg">
+            Test Image for Diagnosis
+          </p>
+          <Icon icon="zi-chevron-right" />
+        </button>
 
-      {/* Guide to User Diagnosis Button */}
-      <button
-        onClick={tryFeature}
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "85%",
-          borderRadius: "12px",
-          backgroundColor: "rgba(68, 141, 177, 90%)",
-          padding: "10px",
-          cursor: "pointer",
-          fontFamily: "'Roboto', sans-serif",
-        }}
-      >
-        <img
-          src="https://res.cloudinary.com/dwljkfseh/image/upload/v1730651555/4961736_zca8t0.png"
-          alt="Guide"
-          style={{
-            width: "66px",
-            height: "66px",
-            objectFit: "cover",
-          }}
-        />
-        <p
-          style={{
-            fontWeight: "bold",
-            fontSize: "18px",
-            color: "#FFFFFF",
-          }}
+        <button
+          onClick={tryFeature}
+          className="flex items-center justify-between w-full rounded-xl bg-blue-500 text-white p-4 hover:bg-blue-600 transition"
         >
-          Guide to User Diagnosis
-        </p>
-        <Icon icon="zi-chevron-right" />
-      </button>
+          <img
+            src="https://res.cloudinary.com/dwljkfseh/image/upload/v1730651555/4961736_zca8t0.png"
+            alt="Guide"
+            className="w-14 h-14 object-cover"
+          />
+          <p className="font-semibold text-base md:text-lg">
+            Guide to User Diagnosis
+          </p>
+          <Icon icon="zi-chevron-right" />
+        </button>
+      </div>
     </Box>
   );
 };
@@ -264,12 +153,9 @@ const HomePage: React.FunctionComponent = () => {
       <div>
         <Header title="Camera" showBackIcon={true} />
         <div className="flex justify-center bg-white pt-2">
-          <div
-            className="relative text-center py-4 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 rounded-lg shadow-lg mb-5"
-            style={{ width: "96%" }}
-          >
-            <h1 className="text-3xl font-extrabold text-white tracking-wide uppercase">
-              <span className="drop-shadow-lg">Camera</span>
+          <div className="relative text-center py-4 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 rounded-lg shadow-lg mb-5 w-[96%] max-w-4xl">
+            <h1 className="text-3xl font-extrabold text-white tracking-wide uppercase drop-shadow-lg">
+              Camera
             </h1>
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 w-3/4 bg-white rounded-full opacity-30"></div>
           </div>

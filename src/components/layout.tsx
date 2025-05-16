@@ -25,6 +25,10 @@ import { useHandlePayment } from "../hooks";
 import Navbar from "./navbar";
 import Footer from "./footer";
 
+interface LayoutProps {
+  children?: React.ReactNode;
+}
+
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
     (window as any).ZaloJavaScriptInterface.getStatusBarHeight() /
@@ -49,7 +53,7 @@ const defaultNewsProps = {
   content: "This is the default content of the article.",
 };
 
-export const Layout: FC = () => {
+export const Layout: FC<LayoutProps> = () => {
   useHandlePayment();
 
   return (
@@ -66,7 +70,7 @@ export const Layout: FC = () => {
           <Route path="/category" element={<CategoryPage />}></Route>
           <Route path="/notification" element={<NotificationPage />}></Route>
           <Route path="/camera" element={<CameraPage />}></Route>
-          <Route path="/Result_medical" element={<Result_medical />}></Route>
+          <Route path="/result_medical" element={<Result_medical />}></Route>
           <Route
             path="/suggestions"
             element={<Suggestions></Suggestions>}

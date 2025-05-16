@@ -292,7 +292,7 @@ const ResultMedical: React.FC = () => {
         backIcon={<Icon icon="zi-arrow-left" className="text-white" />}
         backgroundColor="#4455F2"
       />
-      <div className="relative mx-auto w-full max-w-lg text-center pt-6 px-4">
+      <div className="relative mx-auto w-full max-w-[1024px] text-center pt-6 px-4">
         <div>
           <h2
             className="text-3xl font-bold text-gray-800 tracking-wide"
@@ -303,10 +303,10 @@ const ResultMedical: React.FC = () => {
         </div>
       </div>
 
-      <div className="info-container p-4">
+      <div className="info-container p-4 max-w-[1024px] mx-auto w-full">
         {img && (
           <img
-            className="outputImage w-full mb-[5px] rounded-md shadow-lg"
+            className="outputImage w-full max-w-full mb-[5px] rounded-md shadow-lg"
             src={img}
             alt="Processed Output"
           />
@@ -320,7 +320,7 @@ const ResultMedical: React.FC = () => {
           </div>
         )}
 
-        <div className="button-container flex justify-center mt-4 space-x-4">
+        <div className="button-container flex flex-wrap justify-center mt-4 gap-4 max-w-screen-md mx-auto">
           <Button
             className="flex-1 shadow-lg transition-transform transform hover:scale-105 hover:bg-primary-dark"
             variant="primary"

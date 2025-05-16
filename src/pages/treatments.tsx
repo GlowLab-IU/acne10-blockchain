@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Box, Header, Page, Text, BottomNavigation } from "zmp-ui";
+import { Box, Header, Page, Text } from "zmp-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSquarePhone,
@@ -61,161 +61,67 @@ const Treatments: FC = () => {
 
   return (
     <Page>
-      <div
-        style={{
-          backgroundColor: "#FFFFFF",
-        }}
-      >
+      <div className="bg-white">
         <Header title="Treatments" />
 
-        {/* Banner Image */}
-        <Box style={{ display: "flex", justifyContent: "center" }}>
+        {/* Banner */}
+        <div className="flex justify-center py-4 px-2">
           <img
             src="https://res.cloudinary.com/dwljkfseh/image/upload/v1727089859/contact2_zdtbp7.png"
             alt="Banner"
-            style={{ width: "68%", height: "auto" }}
+            className="w-4/5 md:w-2/3 lg:w-1/2 h-auto"
           />
-        </Box>
-        <div
-          className="relative flex justify-center items-center text-center py-6 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-800 rounded-lg shadow-2xl mb-6"
-          style={{ width: "98%", height: "auto", margin: "0 auto" }}
-        >
-          <h1 className="text-4xl font-extrabold text-white tracking-wide uppercase">
-            <span className="drop-shadow-lg">Doctors Available</span>
-          </h1>
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1.5 w-3/4 bg-white rounded-full opacity-40"></div>
         </div>
-        <br />
-        <Box>
-          {/* Grid layout for Doctors */}
-          <Box
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "20px",
-              justifyItems: "center",
-              paddingBottom: "50px",
-            }}
-          >
-            {doctors.map((doctor, index) => (
-              <Box
-                key={index}
-                style={{
-                  backgroundColor: "#E0FFFF", // Light neon blue background
-                  padding: "20px",
-                  borderRadius: "8%",
-                  textAlign: "center",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                  width: "300px",
-                  margin: "0 auto",
-                }}
-              >
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: "10px",
-                    padding: "15px",
-                  }}
-                >
-                  <img
-                    src={doctor.image}
-                    alt={doctor.name}
-                    style={{
-                      width: "200px",
-                      height: "200px",
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </Box>
-                <Text
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "#333",
-                    marginBottom: "5px",
-                  }}
-                >
-                  {doctor.name}
-                </Text>
-                <Text style={{ color: "#666", marginBottom: "5px" }}>
-                  {doctor.specialty}
-                </Text>
-                <Text style={{ color: "#666", marginBottom: "15px" }}>
-                  {doctor.address}
-                </Text>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    backgroundColor: "#4169E1",
-                    padding: "10px 0",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <FontAwesomeIcon
-                    icon={faSquarePhone}
-                    size="lg"
-                    color="#FFFFFF"
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "1.7em",
-                      transition: "transform 0.3s ease, color 0.3s ease",
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.transform = "scale(1.2)";
-                      e.currentTarget.style.color = "#FFD700";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.color = "#FFFFFF";
-                    }}
-                    onClick={() => handlePhoneClick(doctor.phone)}
-                  />
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    size="lg"
-                    color="#FFFFFF"
-                    style={{
-                      cursor: "pointer",
-                      transition: "transform 0.3s ease, color 0.3s ease",
-                      fontSize: "1.7em",
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.transform = "scale(1.2)";
-                      e.currentTarget.style.color = "#FFD700";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.color = "#FFFFFF";
-                    }}
-                    onClick={() => handleMailClick(doctor.mail)}
-                  />
-                  <FontAwesomeIcon
-                    icon={faCircleInfo}
-                    size="lg"
-                    color="#FFFFFF"
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "1.7em",
-                      transition: "transform 0.3s ease, color 0.3s ease",
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.transform = "scale(1.2)";
-                      e.currentTarget.style.color = "#FFD700";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.transform = "scale(1)";
-                      e.currentTarget.style.color = "#FFFFFF";
-                    }}
-                    onClick={() => handleInfoClick(doctor)}
-                  />
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </Box>
+
+        {/* Title */}
+        <div className="relative flex justify-center items-center text-center py-6 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-800 rounded-xl shadow-lg mx-4 md:mx-10 mb-8">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-white tracking-wide uppercase drop-shadow-lg">
+            Doctors Available
+          </h1>
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 w-3/4 bg-white rounded-full opacity-40"></div>
+        </div>
+
+        {/* Doctor Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 pb-16">
+          {doctors.map((doctor, index) => (
+            <div
+              key={index}
+              className="bg-cyan-100 rounded-xl shadow-md p-4 flex flex-col items-center text-center"
+            >
+              <img
+                src={doctor.image}
+                alt={doctor.name}
+                className="w-40 h-40 rounded-full object-cover mb-4"
+              />
+              <Text className="text-lg font-semibold text-gray-800 mb-1">
+                {doctor.name}
+              </Text>
+              <Text className="text-sm text-gray-600 mb-1">
+                {doctor.specialty}
+              </Text>
+              <Text className="text-sm text-gray-500 mb-4">
+                {doctor.address}
+              </Text>
+              <div className="flex justify-around w-full bg-blue-600 rounded-lg py-2">
+                <FontAwesomeIcon
+                  icon={faSquarePhone}
+                  className="text-white text-xl cursor-pointer transition-transform duration-200 hover:scale-125 hover:text-yellow-300"
+                  onClick={() => handlePhoneClick(doctor.phone)}
+                />
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="text-white text-xl cursor-pointer transition-transform duration-200 hover:scale-125 hover:text-yellow-300"
+                  onClick={() => handleMailClick(doctor.mail)}
+                />
+                <FontAwesomeIcon
+                  icon={faCircleInfo}
+                  className="text-white text-xl cursor-pointer transition-transform duration-200 hover:scale-125 hover:text-yellow-300"
+                  onClick={() => handleInfoClick(doctor)}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </Page>
   );
