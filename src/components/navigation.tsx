@@ -6,7 +6,7 @@ import { BottomNavigation, Icon } from "zmp-ui";
 import { CartIcon } from "./cart-icon";
 
 const tabs: Record<string, MenuItem> = {
-  "/index": {
+  "/homepage": {
     label: "Home",
     icon: <Icon icon="zi-home" />,
   },
@@ -55,7 +55,7 @@ export const Navigation: FC = () => {
       id="footer"
       activeKey={activeTab}
       onChange={(key: TabKeys) => setActiveTab(key)}
-      className="z-50"
+      className="z-50 text-xs"
     >
       {Object.keys(tabs).map((path: TabKeys) => (
         <BottomNavigation.Item

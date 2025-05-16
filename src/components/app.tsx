@@ -23,7 +23,7 @@ const MyApp = () => {
           <SnackbarProvider>
             <ZMPRouter>
               <Routes>
-                <Route path="/" element={<SurveyPage />} />
+                <Route path="/survey" element={<SurveyPage />} />
 
                 <Route
                   path="/*"
@@ -31,7 +31,7 @@ const MyApp = () => {
                     <React.Fragment>
                       <Layout>
                         <Routes>
-                          <Route path="/index" element={<HomePage />} />
+                          <Route path="/homepage" element={<HomePage />} />
                         </Routes>
                       </Layout>
                     </React.Fragment>

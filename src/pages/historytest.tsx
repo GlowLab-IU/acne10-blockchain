@@ -1,4 +1,4 @@
-{/*import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Box, Header, Page, Text, BottomNavigation, Icon } from "zmp-ui";
 import { Divider } from "../components/divider";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
@@ -9,7 +9,6 @@ import {
   faSquarePlus,
 } from "@fortawesome/free-regular-svg-icons";
 import { initializeApp } from "firebase/app";
-import { selectedDateGlobal } from "../pages/Calendar";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDz8sjOP6FWU5CghOimZnLryKWMwqcGhGo",
@@ -54,15 +53,16 @@ const Records: FC = () => {
       const docsData = querySnapshot.docs.map(
         (doc) => doc.data() as SkincareData
       );
-
       const sortedData = docsData
-        .flatMap((entry) =>
-          entry.ngày.map((item) => ({
-            ...item,
-            ngày: item.ngày instanceof Date ? item.ngày : item.ngày.toDate(),
-          }))
-        )
-        .sort((a, b) => a.ngày.getTime() - b.ngày.getTime());
+        .reduce((acc: any[], entry: SkincareData) => {
+          return acc.concat(
+            entry.ngày.map((item: any) => ({
+              ...item,
+              ngày: item.ngày instanceof Date ? item.ngày : item.ngày.toDate(),
+            }))
+          );
+        }, [])
+        .sort((a: any, b: any) => a.ngày.getTime() - b.ngày.getTime());
 
       const groupedData = sortedData.reduce((acc, item) => {
         const dateKey = item.ngày.toLocaleDateString();
@@ -89,10 +89,6 @@ const Records: FC = () => {
     setSelectedLabel(label === selectedLabel ? null : label);
   };
 
-  const formatSelectedDateGlobal = selectedDateGlobal
-    ? selectedDateGlobal.toLocaleDateString()
-    : null;
-
   return (
     <Page>
       <Header title="History" />
@@ -116,16 +112,18 @@ const Records: FC = () => {
           &#10020; Treatment records:
         </Text>
 
-        {/* Show loading message while data is being fetched 
+        {/* Show loading message while data is being fetched */}
         {loading ? (
           <Text style={{ fontSize: "20px", color: "gray" }}>
             Wait for loading...
           </Text>
         ) : (
           <>
-            {/* If no data for the selected date, show "No data" 
+            {/* If no data for the selected date, show "No data" */}
             {groupedData.size === 0 ? (
-              <Text style={{ fontSize: "18px", color: "red", marginTop: "20px" }}>
+              <Text
+                style={{ fontSize: "18px", color: "red", marginTop: "20px" }}
+              >
                 No data
               </Text>
             ) : (
@@ -135,7 +133,7 @@ const Records: FC = () => {
                   className="info-container rounded-lg shadow-md bg-white mb-2"
                   style={{ backgroundColor: "#f0f8ff" }}
                 >
-                  {formatSelectedDateGlobal === dateKey && (
+                  {true && (
                     <>
                       <Text
                         onClick={() => handleDateClick(dateKey)}
@@ -192,7 +190,7 @@ const Records: FC = () => {
 
                               {item.bounding.map((label, labelIndex) => (
                                 <Box
-                                  key={${index}-${labelIndex}}
+                                  key={`${index}-${labelIndex}`}
                                   className="mt-3 "
                                 >
                                   <Text
@@ -258,4 +256,3 @@ const Records: FC = () => {
 };
 
 export default Records;
-*/}

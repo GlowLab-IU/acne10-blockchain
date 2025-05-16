@@ -185,7 +185,7 @@ const Suggestions: React.FunctionComponent = () => {
   };
 
   const handleClickSave = () => {
-      navigate("/index");
+    navigate("/homepage");
   };
 
   const handleChatbotClick = () => {
@@ -303,7 +303,7 @@ const Suggestions: React.FunctionComponent = () => {
           </Text>
         </Button>
       </div>
-      
+
       <div className="flex justify-center mt-4">
         <Button
           className="w-full shadow-lg transition-transform transform hover:scale-105 mx-4"

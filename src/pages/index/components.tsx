@@ -29,7 +29,7 @@ export const Components: FC = () => {
         </Text>
       </div>
       <div
-        onClick={() => navigate("/Calendar")}
+        onClick={() => navigate("/calendar")}
         className="flex flex-col space-y-2 items-center"
         style={{
           backgroundColor: "#F5F5F5",

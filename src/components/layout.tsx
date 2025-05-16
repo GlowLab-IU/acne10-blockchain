@@ -22,6 +22,8 @@ import CheckoutResultPage from "../pages/result";
 import { getSystemInfo } from "zmp-sdk";
 import { ScrollRestoration } from "./scroll-restoration";
 import { useHandlePayment } from "../hooks";
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 if (getSystemInfo().platform === "android") {
   const androidSafeTop = Math.round(
@@ -53,9 +55,13 @@ export const Layout: FC = () => {
   return (
     <Box flex flexDirection="column" className="h-screen">
       <ScrollRestoration />
+      <Box className="hidden lg:block">
+        <Navbar />
+      </Box>
+
       <Box className="flex-1 flex flex-col overflow-hidden">
         <Routes>
-          <Route path="/index" element={<HomePage />}></Route>
+          <Route path="/homepage" element={<HomePage />}></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/category" element={<CategoryPage />}></Route>
           <Route path="/notification" element={<NotificationPage />}></Route>
@@ -67,7 +73,7 @@ export const Layout: FC = () => {
           ></Route>
           <Route path="/statistics" element={<Statistics />}></Route>
           <Route path="/treatments" element={<Treatments />}></Route>
-          <Route path="/Survey" element={<SurveyPage />}></Route>
+          <Route path="/survey" element={<SurveyPage />}></Route>
           <Route path="/chatbot" element={<Chatbot />}></Route>
           <Route
             path="/NewsFrame"
@@ -79,8 +85,14 @@ export const Layout: FC = () => {
 
           <Route path="/guild" element={<Guild />}></Route>
         </Routes>
+
+        <Box className="hidden lg:block">
+          <Footer />
+        </Box>
+        <Box className="block lg:hidden">
+          <Navigation />
+        </Box>
       </Box>
-      <Navigation />
     </Box>
   );
 };

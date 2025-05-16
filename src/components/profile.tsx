@@ -120,7 +120,19 @@ const ProfilePage: FC = () => {
           <Text.Title className="text-center text-2xl font-bold mb-1">
             {user.name}
           </Text.Title>
-          <Text className="text-gray-500 mb-6">{user.position || "User"}</Text>
+          <Text className="text-gray-500 mb-6">
+            {(
+              user as {
+                id: string;
+                name: string;
+                avatar: string;
+                idByOA?: string | undefined;
+                isSensitive?: boolean | undefined;
+                followedOA?: boolean | undefined;
+                position: string;
+              }
+            ).position || "User"}
+          </Text>
           {isEditingAvatar && (
             <Box className="flex flex-col items-center">
               <Input
