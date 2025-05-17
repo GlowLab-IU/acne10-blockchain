@@ -60,7 +60,7 @@ export const Layout: FC<LayoutProps> = () => {
     <Box flex flexDirection="column" className="h-screen">
       <ScrollRestoration />
       <Box className="hidden lg:block">
-        <Navbar />
+        <Navbar network={"mainnet-beta"} />
       </Box>
 
       <Box className="flex-1 flex flex-col overflow-hidden">

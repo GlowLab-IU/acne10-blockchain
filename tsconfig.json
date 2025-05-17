@@ -27,9 +27,12 @@
     "removeComments": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "types": ["vite/client"],
-    "typeRoots": ["node_modules/@types"]
+    "types": ["vite/client", "node"],
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+    }
   },
-  "exclude": ["node_modules/@types/react-router-dom"],
   "include": ["src"]
 }
