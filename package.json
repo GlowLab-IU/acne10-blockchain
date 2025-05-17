@@ -20,6 +20,7 @@
     "build:css": "postcss src/css/tailwind.css -o src/css/styles.css"
   },
   "dependencies": {
+    "@coral-xyz/anchor": "^0.31.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
@@ -31,6 +32,9 @@
     "@mui/material": "^6.1.1",
     "@mui/x-charts": "^7.18.0",
     "@react-spring/web": "^9.6.1",
+    "@solana/spl-token": "^0.4.13",
+    "@solana/wallet-adapter-react": "^0.15.38",
+    "@solana/web3.js": "^1.98.2",
     "@types/lodash": "^4.14.191",
     "anne10": "file:",
     "antd": "^5.21.2",
@@ -39,6 +43,7 @@
     "coffe-thinh": "file:",
     "dotenv": "^16.5.0",
     "firebase": "^10.13.1",
+    "ipfs-http-client": "^60.0.1",
     "lodash": "^4.17.21",
     "multer": "^1.4.5-lts.1",
     "prop-types": "^15.8.1",
@@ -47,8 +52,6 @@
     "react-datepicker": "^7.4.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.53.0",
-    "react-native-camera": "^4.2.1",
-    "react-native-image-picker": "^7.1.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.2",
     "recoil": "^0.7.7",
@@ -58,7 +61,7 @@
     "zmp-ui": "^1.6.0-rc.6"
   },
   "devDependencies": {
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.15.18",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.0.11",
     "@types/react-router-dom": "^5.3.3",
@@ -71,7 +74,8 @@
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.58.3",
     "tailwindcss": "^3.2.7",
-    "vite": "^6.3.5",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.19",
     "vite-tsconfig-paths": "^5.1.4",
     "zmp-vite-plugin": "^1.1.6"
   }
